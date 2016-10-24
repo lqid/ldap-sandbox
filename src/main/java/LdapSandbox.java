@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LdapSandbox {
-    final static Logger logger = LoggerFactory.getLogger(LdapSandbox.class);
+    private final static Logger logger = LoggerFactory.getLogger(LdapSandbox.class);
 
     public static void main(String[] args) throws Exception {
         setupConnection();
@@ -50,7 +50,7 @@ public class LdapSandbox {
         Authenticator auth = new Authenticator(dnResolver, authHandler);
         auth.setAuthenticationResponseHandlers(new ActiveDirectoryAuthenticationResponseHandler());
         auth.setReturnAttributes(ActiveDirectoryAuthenticationResponseHandler.ATTRIBUTES);
-        AuthenticationResponse response = auth.authenticate(new AuthenticationRequest("dfisher", new Credential("password")));
+        AuthenticationResponse response = auth.authenticate(new AuthenticationRequest("fh", new Credential("password")));
         if (response.getResult()) {
             // authentication succeeded, AD does not support warnings
         } else {
